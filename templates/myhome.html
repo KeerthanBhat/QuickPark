@@ -1,0 +1,74 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    MyHome
+{% endblock %}
+
+{% block main %}
+
+<style>
+div.container {
+    width: 100%;
+}
+
+header, footer {
+    padding: 2em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    
+}
+
+aside {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    padding: 2em;
+    overflow: hidden;
+}
+</style>
+<body>
+
+<div class="container">
+
+<article>
+  <h3 align = center>Parking made easy</h3>
+  <p>Find your nearest available parking spot and pre-book it for a seamless parking experience.</p>
+  <br></br>
+  <form action="{{ url_for('find') }}">
+<div class="form-group">
+                <button class="btn btn-default" type="submit">Find free parking space</button>
+            </div>
+            </form><br></br>
+  <h3 align = center>Rent out your parking space</h3>
+  <p>Do you have parking space in your building which is under-utilized? Rent it out and make business with us.</p>
+  <br></br>
+<form action="{{ url_for('rent') }}">
+<div class="form-group">
+                <button class="btn btn-default" type="submit">Rent-out your space</button>
+            </div></form>
+</article>
+
+<footer>Made with &#10084 by<br></br> TheAbsoluteZeroes Inc.</footer>
+
+</div>
+
+</body>
+
+{% endblock %}

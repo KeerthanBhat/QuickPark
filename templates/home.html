@@ -1,0 +1,39 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<style>
+
+article {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+    background-color: #250903;
+}
+p {
+    font-family: times;
+    font-size: 150%;
+    font-weight: bold;
+}
+</style>
+    <div>
+<form action="{{ url_for('login') }}">
+<div class="form-group">
+                <button class="btn btn-default" type="submit">Login</button>
+            </div>
+            </form>
+<form action="{{ url_for('signup') }}">
+<div class="form-group">
+                <button class="btn btn-default" type="submit">Sign-up</button>
+            </div>
+</div>
+
+
+
+{% endblock %}

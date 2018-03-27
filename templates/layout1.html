@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <title>QuickPark: {% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" type="image/png" href="https://thumb7.shutterstock.com/display_pic_with_logo/3432842/488964991/stock-vector-uppercase-qp-logo-red-blue-overlap-transparent-logo-488964991.jpg">
+    </head>
+    
+    <body>
+
+        <div class="container">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ url_for('home') }}"><span class="blue" style="font-family:comic sans ms;font-size:50px">Q</span><span class="red" style="font-family:comic sans ms;font-size:30px">u</span><span class="blue" style="font-family:comic sans ms;font-size:30px">i</span><span class="red" style="font-family:comic sans ms;font-size:30px">c</span><span class="blue" style="font-family:comic sans ms;font-size:30px">k</span><span class="red" style="font-family:comic sans ms;font-size:30px">P</span><span class="blue" style="font-family:comic sans ms;font-size:30px">a</span><span class="red" style="font-family:comic sans ms;font-size:30px">r</span><span class="blue" style="font-family:comic sans ms;font-size:30px">k</span></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ url_for('login') }}">Login</a></li>
+                                <li><a href="{{ url_for('signup') }}">Signup</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            {% if get_flashed_messages() %}
+                <header>
+                    <div class="alert alert-info" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                </header>
+            {% endif %}
+
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+            
+        </div>
+
+    </body>
+</html>
+    
